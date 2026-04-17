@@ -5,39 +5,165 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEF2F7"
     tools:context=".MainActivity">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AGENCIA DE VIAJES"
-        android:textSize="20dp"
-        android:layout_margin="20dp"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#003580"
+        android:letterSpacing="0.1"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/txtSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tu viaje, nuestra misión"
+        android:textSize="13sp"
+        android:textColor="#6688AA"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo" />
 
+    <!-- Imagen del bus -->
     <ImageView
         android:id="@+id/imgBus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="80dp"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/bus"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        android:contentDescription="Imagen de bus de la agencia"
+        app:layout_constraintTop_toBottomOf="@id/txtSubtitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <!-- Card contenedor de campos -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardForm"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Acceso"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/imgBus"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Campo: Nombre de usuario -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNombre"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Usuario / Nombre"
+                app:boxStrokeColor="#0055AA"
+                app:hintTextColor="#0055AA"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="#222222" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo: Correo electrónico -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCorreo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                app:boxStrokeColor="#0055AA"
+                app:hintTextColor="#0055AA"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#222222" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo: Contraseña -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                app:boxStrokeColor="#0055AA"
+                app:hintTextColor="#0055AA"
+                app:passwordToggleEnabled="true"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="#222222" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo: Destino / Ciudad -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDestino"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Destino / Ciudad"
+                app:boxStrokeColor="#0055AA"
+                app:hintTextColor="#0055AA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDestino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:textColor="#222222" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón INGRESAR -->
+    <Button
+        android:id="@+id/btnAcceso"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:text="INGRESAR"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0055AA"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/cardForm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
