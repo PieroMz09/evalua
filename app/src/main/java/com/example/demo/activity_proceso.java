@@ -8,17 +8,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class activity_proceso extends AppCompatActivity {
+import com.google.android.material.button.MaterialButton;
 
+public class activity_proceso extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_proceso);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        MaterialButton btnVolver = findViewById(R.id.btnVolverProceso);
+        btnVolver.setOnClickListener(v -> finish()); // regresa a activity_menu
     }
 }

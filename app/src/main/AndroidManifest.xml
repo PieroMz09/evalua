@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity_menu" android:exported="false" />
+        <activity android:name=".activity_prueba" android:exported="false" />
+        <activity android:name=".activity_proceso" android:exported="false" />
     </application>
 
 </manifest>
